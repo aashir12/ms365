@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .text-gradient{
     background-clip: text;
     -webkit-background-clip: text;
@@ -12,4 +15,8 @@
 .product-bg{
     
     background-image: linear-gradient(to bottom, #FFF4ED, #fff);
+}
+.active{
+    color: #D83B01;
+    background: #fff;
 }

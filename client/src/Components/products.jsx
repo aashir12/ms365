@@ -1,7 +1,23 @@
-import React from 'react'
+import React,{useState} from 'react'
 import '../App.css'
+import Pics from './pics'
+import $ from 'jquery'
 
 const Products = () => {
+  var [number,setNumber]=useState(0) 
+
+ //#792000 brown
+ //#D83B01 orange
+ $('.click').on('click',function(){
+  var clickedButton=$(this);
+  console.log('clicked')
+
+  $('.click').not(clickedButton).removeClass('active');
+  clickedButton.addClass('active')
+ })
+
+
+
   return (
     <>
         <div className='cover w-full  bg-[#FFF4ED]'>
@@ -10,53 +26,22 @@ const Products = () => {
          {/* {Top 3 Boxes} */}
 
 
-   <div className='box w-[60%] h-10 p-8 bg-white rounded-t-lg mt-8 flex justify-center items-center text-[#D83B01] text-lg font-semibold'>For Home</div>
-   <div className='box w-[60%] h-10 p-8 bg-[#F9DBD0] rounded-t-lg mt-8 flex justify-center items-center text-[#792000] text-lg font-semibold '>For Organisations</div>
-   <div className='box w-[60%] h-10 p-8 bg-[#F9DBD0] rounded-t-lg mt-8 flex justify-center items-center text-[#792000] text-lg font-semibold '>For Educators</div>
+   <div className='box w-[60%] h-10 p-8 bg-[#F9DBD0] text-[#792000] rounded-t-lg mt-8 flex justify-center items-center text-lg font-semibold cursor-pointer click' onClick={()=>{
+    setNumber(0)
+   }}>For Home</div>
+   <div className='box w-[60%] h-10 p-8 bg-[#F9DBD0] text-[#792000] rounded-t-lg mt-8 flex justify-center items-center text-[#792000] text-lg font-semibold cursor-pointer click' onClick={()=>{
+    setNumber(1)
+   }}>For Organisations</div>
+   <div className='box w-[60%] h-10 p-8 bg-[#F9DBD0] text-[#792000] ounded-t-lg mt-8 flex justify-center items-center  text-lg font-semibold cursor-pointer click' onClick={()=>{
+    setNumber(2)
+   }}>For Educators</div>
+   
          </div>
 
        
           {/* Pics Cover */}
          
-         <div className='singleBoxCover w-[100%] pb-20 rounded-b-lg
-         '>
-          {/* { First Pic} */}
-          <div className='singleBox w-[80%] bg-white  m-auto'>
-            <div className='insideBox text-center py-14'>
-              <h1 className='text-2xl  font-bold text-[#242424]'>Free or Premium :</h1>
-              <h1 className='text-2xl  font-bold pb-6 text-[#242424]'>Microsft 365 has uor Covered</h1>
-              <p className='w-[70%] m-auto text-[#242424] lg:w-[35%]'>Everyone gets cloud storage and essential Microsoft 365 apps on the web, free of charge</p>
-              <img src='https://res.cdn.office.net/officehub/images/content/images/unauth-refresh/value-consumer-mreb-28681bb486.png'/>
-            </div>
-          </div>
-          {/* Second pic */}
-          <div className='singleBox w-[80%] bg-white  m-auto'>
-            <div className='insideBox py-14 flex'>
-           <div className='lft ml-24 mt-36'>
-           <h1 className='text-4xl font-black text-white bg-[#D83B01] 
-            w-[50px] h-[50px]  rounded-full text-center'>+</h1>
-              <h1 className='text-4xl  font-bold text-[#242424] py-3'>Create something inspiring</h1>
-              <p className='w-[70%]  text-[#242424] text-lg lg:w-[70%] py-3'>Quickly design anything for you and your family—birthday cards, school flyers, budgets, social posts, videos, and more—no graphic design experience needed.</p>
-              <p className='text-[#D83B01] py-3'>Explore more at the Microsft Create ></p>
-           </div>
-              <img src='https://res.cdn.office.net/officehub/images/content/images/unauth-refresh/highlight-consumer-1-2889dd4e93.png' className='w-[50%] mr-24'/>
-            </div>
-          </div>
-
-          {/* Third pic */}
-          <div className='singleBox w-[80%]  m-auto bg-white rounded-b-3xl'>
-            <div className='insideBox py-14 flex'>
-            <img src='https://res.cdn.office.net/officehub/images/content/images/unauth-refresh/highlight-consumer-2-c4ec327b9e.png' className='w-[50%] ml-24'/>
-           <div className='lft ml-36 mt-36'>
-            <i class="fa-solid fa-cloud text-4xl font-blac text-[#D83B01] 
-            w-[50px] h-[50px]  rounded-full text-center text-3xl"></i>
-              <h1 className='text-4xl  font-bold text-[#242424] py-3'>Store with confidence</h1>
-              <p className='w-[70%]  text-[#242424] text-lg lg:w-[70%] py-3'>Your files and memories stay safe and secure in the cloud, with 5 GB for free and 1 TB+ if you go premium</p>
-              <p className='text-[#D83B01] py-3'>Explore more at the Microsft Create ></p>
-           </div>
-            </div>
-          </div>
-         </div>
+          <Pics a={number}/>
 
          {/* QR Code page */}
          <div className='qr h-full product-bg'>

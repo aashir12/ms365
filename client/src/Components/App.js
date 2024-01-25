@@ -5,6 +5,7 @@ import HeaderBelow from './headerBelow';
 import Land from './land';
 import Products from './products';
 import Footer from './footer';
+
 function App() {
   return (
   <>
@@ -12,7 +13,9 @@ function App() {
   <HeaderBelow/>
   <Land/>
   <Products/>
- <Footer/>
+  <Footer/>
+
+
 </>
   );
 }
